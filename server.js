@@ -11,10 +11,10 @@ const adminRoutes = require("./routes/adminRoutes");
 dotenv.config();
 
 app.get("/", (req, res) => {
-  res.status(200).json({
-    status: "OK",
-    message: "LocalSetu backend is running",
-  });
+    res.status(200).json({
+        status: "OK",
+        message: "LocalSetu backend is running",
+    });
 });
 
 // App
@@ -40,6 +40,10 @@ io.on("connection", (socket) => {
     socket.on("disconnect", () => {
         console.log("Socket disconnected:", socket.id);
     });
+});
+
+app.get("/", (req, res) => {
+    res.json({ status: "Backend is running 🚀" });
 });
 
 // Routes
@@ -76,4 +80,3 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () =>
     console.log(`Server running on port ${PORT}`)
 );
-    
