@@ -56,6 +56,14 @@ app.use((req, res) => {
     res.status(404).json({ message: "Route not found" });
 });
 
+app.get("/", (req, res) => {
+    res.status(200).json({
+        status: "OK",
+        service: "LocalSetu Backend",
+        uptime: process.uptime()
+    });
+});
+
 // Start
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () =>
