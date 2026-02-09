@@ -10,6 +10,13 @@ const adminRoutes = require("./routes/adminRoutes");
 
 dotenv.config();
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "OK",
+    message: "LocalSetu backend is running",
+  });
+});
+
 // App
 const app = express();
 app.use(cors());
